@@ -7,3 +7,28 @@ En ésta segunda versión de la aplicación se tratará de mejorar (evidentement
  - Buscador
  - Login (HashMap)
  - Desplegable a la hora de insertat (ArrayList)
+ 
+## Capturas Versioón 2.0
+<img src="Imagenes/login.png">
+<img src="Imagenes/indexV2.png">
+<img src="Imagenes/facturasV2.png">
+<img src="Imagenes/facturasV2insert.png">
+<img src="Imagenes/sociosV2.png">
+<img src="Imagenes/sociosV2insert.png">
+<img src="Imagenes/sociosV2delete.png">
+<img src="Imagenes/videojuegosV2.png">
+<img src="Imagenes/videojuegosV2busqueda.png">
+<img src="Imagenes/videojuegosV2insert.png">
+
+## Versión 1.0
+# Index
+<img src="Imagenes/index.png">
+
+# Facturas
+<img src="Imagenes/PagFacturas.png">
+
+# Socios
+<img src="Imagenes/PagSocios.png">
+
+# Videojuegos
+<img src="Imagenes/PagVideojuegos.png">
