@@ -5,7 +5,7 @@ En ésta segunda versión de la aplicación se tratará de mejorar (evidentement
  - Cambios en la estructura de la BBDD
  - Barra de navegación
  - Buscador
- - Login (HashMap)
+ - Login (HashMap): (usuario,usuario),(admin,admin)
  - Desplegable a la hora de insertat (ArrayList)
  
 ## Capturas Versión 2.0
