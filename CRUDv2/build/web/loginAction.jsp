@@ -17,7 +17,6 @@
 
             login.put("admin", "admin");
             login.put("usuario", "usuario");
-            login.put("arriba", "españa");
             
             String usuario = request.getParameter("usuario");
             String contraseña = request.getParameter("pass");
@@ -40,7 +39,7 @@
              * Nota: Soy consciente de que se trata de un login "débil", por describirlo de alguna forma.
              * ¿Por qué digo ésto? Porque realmente no es obligatorio logearse para acceder a la aplicación.
              * Si en la barra de direcciones, donde pone http://localhost:8080/CRUDv2/login.jsp , cambiamos
-             * "login.jsp" por "videojuegos.jsp" (o cualquier otra clase de la aplciación) accedería sin
+             * "login.jsp" por "videojuegos.jsp" (o cualquier otra clase de la aplicación) accedería sin
              * ningún problema y podría realizar todas las acciones CRUD.
              * 
              * He intentado por todos los medios aplicar un servlet que compruebe que se está logeado en

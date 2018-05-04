@@ -1,6 +1,5 @@
 <%-- 
     Document   : socios
-
     Author     : adrian.chamorrosilva
 --%>
 <%@page import="java.sql.Statement"%>
@@ -59,8 +58,8 @@
         <%
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");
-            Statement s = null;// conexion.createStatement();
-            ResultSet listado = null;// s.executeQuery("SELECT * FROM socios");
+            Statement s = null;
+            ResultSet listado = null;
             s = conexion.createStatement();
             String query = request.getParameter("b");
             String busqueda;
@@ -79,13 +78,12 @@
         <div class="container-fluid">
             <div class="table-responsive">
                 <table class="table">
-                    <tr><th>CodSocio</th><th>DNI</th><th>Nombre</th><th>Apellidos</th><!--<th>Edad</th>--><th>Teléfono</th><th>Email</th><th>Genero</th><th>Dirección</th><th>Asociado</th></tr>
+                    <tr><th>CodSocio</th><th>DNI</th><th>Nombre</th><th>Apellidos</th><th>Teléfono</th><th>Email</th><th>Genero</th><th>Dirección</th><th>Asociado</th></tr>
                     <form method="get" action="altaSocio.jsp"> 
                         <tr><td><input type="text" name="CodSocios" size="5"></td>
                             <td><input type="text" name="DNI" size="7"></td>
                             <td><input type="text" name="Nombre" size="5"></td>
                             <td><input type="text" name="Apellidos" size="5"></td>
-                            <!-- <td><input type="text" name="Edad" size="2"></td>-->
                             <td><input type="text" name="Teléfono" size="7"></td>
                             <td><input type="text" name="Email" size="20"></td>
                             <td><input type="text" name="Genero" size="1"></td>
@@ -102,7 +100,6 @@
                             out.println("<td>" + listado.getString("DNI") + "</td>");
                             out.println("<td>" + listado.getString("Nombre") + "</td>");
                             out.println("<td>" + listado.getString("Apellidos") + "</td>");
-                            // out.println("<td>" + listado.getString("Edad") + "</td>");
                             out.println("<td>" + listado.getString("Telefono") + "</td>");
                             out.println("<td>" + listado.getString("Email") + "</td>");
                             out.println("<td>" + listado.getString("Genero") + "</td>");
@@ -115,7 +112,6 @@
                             <input type="hidden" name="DNI" value="<%=listado.getString("DNI")%>">
                             <input type="hidden" name="Nombre" value="<%=listado.getString("Nombre")%>">
                             <input type="hidden" name="Apellidos" value="<%=listado.getString("Apellidos")%>">
-
                             <input type="hidden" name="Telefono" value="<%=listado.getString("Telefono")%>">
                             <input type="hidden" name="Email" value="<%=listado.getString("Email")%>">
                             <input type="hidden" name="Genero" value="<%=listado.getString("Genero")%>">

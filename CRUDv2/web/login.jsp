@@ -1,5 +1,5 @@
 <%-- 
-    Document   : index
+    Document   : login
     Author     : adrian.chamorrosilva
 --%>
 <%@page import="java.sql.Statement"%>

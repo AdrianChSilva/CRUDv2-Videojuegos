@@ -8,7 +8,6 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -58,9 +57,9 @@
             //En ésta nueva versión hemos incluido un buscador, para que se agilice más la búsqueda
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");
-            Statement s = null;//conexion.createStatement();
+            Statement s = null;
             s = conexion.createStatement();
-            ResultSet listado = null;// = s.executeQuery("SELECT * FROM videojuegos");
+            ResultSet listado = null;
 
             String query = request.getParameter("b");
             String busqueda;
@@ -92,21 +91,18 @@
                                             plataforma.add("Xbox One");
                                             plataforma.add("Nintendo Switch");
                                             plataforma.add("PC");
-                                            for (String n : plataforma) {
-                                                out.println("<option>" + n + "</option>");
+                                            for (String x : plataforma) {
+                                                out.println("<option>" + x + "</option>");
                                             }
                                         %>
                                     </select>
 
                                 </div></td>
                             <!---------------------------------------------------------->
-                            <!--<td><input type="text" name="Plataforma" size="5"></td>-->
                             <td><input type="text" name="Desarrolladora" size="5"></td>
                             <td><input type="text" name="Publisher" size="7"></td>
                             <td><input type="text" name="Precio" size="3"></td>
                             <td><input type="text" name="Stock" size="3"></td>
-
-
                             <td><button type="submit" value="Añadir" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Añadir</button></td><td></td></tr>           
                     </form>
                     <%

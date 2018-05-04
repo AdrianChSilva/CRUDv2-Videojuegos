@@ -1,6 +1,5 @@
 <%-- 
     Document   : borraSocio
-
     Author     : adrian.chamorrosilva
 --%>
 

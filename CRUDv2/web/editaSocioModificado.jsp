@@ -35,7 +35,6 @@
           request.setCharacterEncoding("UTF-8");
 
           String actualizacion = "UPDATE socios SET "
-           // + "DNI='" + request.getParameter("DNI") 
             + " nombre='" + request.getParameter("Nombre")
             + "', apellidos='" + request.getParameter("Apellidos")
             + "', telefono='" + request.getParameter("Telefono")

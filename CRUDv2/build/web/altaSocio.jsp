@@ -50,7 +50,6 @@
                         + ", '" + request.getParameter("DNI") + "', '"
                         + request.getParameter("Nombre")
                         + "', '" + request.getParameter("Apellidos")
-                        //+ "', '" + request.getParameter("edad")
                         + "', '" + request.getParameter("Teléfono")
                         + "', '" + request.getParameter("Email")
                         + "', '" + request.getParameter("Genero")

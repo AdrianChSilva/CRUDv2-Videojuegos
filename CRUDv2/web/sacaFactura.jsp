@@ -2,7 +2,6 @@
     Document   : sacaFactura
     Author     : adrian.chamorrosilva
 --%>
-
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -49,8 +48,6 @@
                 String insercion = "INSERT INTO Det_Factura VALUES (" + Integer.valueOf(request.getParameter("CodDetFact"))
                         + "," + Integer.valueOf(request.getParameter("CodVideojuegos"))
                         + "," + Integer.valueOf(request.getParameter("Cantidad"))
-                        // + ", '" + request.getParameter("Desarrolladora")
-                        //+ "," + request.getParameter("Precio")
                         + "," + Double.valueOf(request.getParameter("Precio"))//cambios para introducir decimales
                         + "," + Integer.valueOf(request.getParameter("Factura_idFactura")) + ")";
                 s.execute(insercion);

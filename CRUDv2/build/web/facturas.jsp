@@ -2,13 +2,12 @@
     Document   : facturas
     Author     : adrian.chamorrosilva
 --%>
-
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -57,8 +56,8 @@
         <%
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");
-            Statement s = null;// conexion.createStatement();
-            ResultSet listado = null;// s.executeQuery("SELECT * FROM socios");
+            Statement s = null;
+            ResultSet listado = null;
             s = conexion.createStatement();
             String query = request.getParameter("b");
             String busqueda;
@@ -79,12 +78,49 @@
                             <td><input type="text" name="CodVideojuegos" size="7"></td>
                             <td><input type="text" name="Cantidad" size="5"></td>
                             <td><input type="text" name="Precio" size="5"></td>
-                            <td><input type="text" name="Factura_idFactura" size="7"></td>
+                            <!--CAMBIOS DE LA VERSIÓN CRUD 2.0 ARRAYLIST-->
+                            <td> <div class="form-group">
+                                    <select class="form-control" id="sel1" name="Factura_idFactura">
+                                        <%
+                                            /**
+                                             * Con esto sacaremos las facturas que se encuentren dentro de la BD.
+                                             * No hay que confundir entre Factura y el detalle factura.
+                                             * Lo que se muestra realmente en ésta página es la tabla de muchos
+                                             * a muchos; detalleFactura. La pk de ésta tabla son los detalles que hay
+                                             * DENTRO de una factura. Para que se entienda mejor: emula lo que es el
+                                             * típico ticket/factura que te dan al finalizar tu compra.
+                                             * 
+                                             * Por ello, una factura tiene varios detalles. Esto es porque un cliente
+                                             * al comprar genera una factura y en su carro de la compra hay varios productos
+                                             * los cuales son los detalles de la factura.
+                                             * 
+                                             * Entonces, usamos una sentencia sql para obtener las distintas (pk) facturas
+                                             * y la almacenamos en un arrayList, que luego se mostrará en un desplegable 
+                                             * a la hora de añadir/modificar una factura. Ésto ayudará al usuario ya que éste
+                                             * puede no conocer las (pk) facturas que hay dentro de la BD.
+                                             */
+                                            Class.forName("com.mysql.jdbc.Driver");
+                                            s = conexion.createStatement();
+                                            int facturas;
+                                            String sql;
+                                            ArrayList<String> idFactura = new ArrayList();
+                                            sql = "select idFactura from factura order by idFactura asc";
+                                            ResultSet listaFac = null;
+                                            listaFac = s.executeQuery(sql);
+                                            while (listaFac.next()) {
+                                                idFactura.add(listaFac.getString("idFactura"));
+                                            }
+                                            for (String x : idFactura) {
+                                                out.println("<option>" + x + "</option>");
+                                            }
 
+                                        %>
+                                    </select>
+                                </div></td>
+                            <!---------------------------------------------------------->
                             <td><button type="submit" value="Añadir" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Añadir</button></td><td></td></tr>           
                     </form>
-                    <%
-                        while (listado.next()) {
+                    <%                        while (listado.next()) {
                             out.println("<tr><td>");
                             out.println(listado.getString("CodDetFact") + "</td>");
                             out.println("<td>" + listado.getString("CodVideojuegos") + "</td>");
@@ -103,14 +139,10 @@
                         } // while   
                         conexion.close();
                     %>
-
-
                 </table>
             </div>
         </div>
-
         <div class="text-center">&copy; Adrián Chamorro Silva</div>
-
         <!-- Scripts necesarios de bootstrap-->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

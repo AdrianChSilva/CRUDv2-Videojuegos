@@ -2,7 +2,6 @@
     Document   : editaVideojuegoModificado
     Author     : Adrian
 --%>
-
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
