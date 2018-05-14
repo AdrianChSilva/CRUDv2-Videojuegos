@@ -51,6 +51,7 @@
                     <select class="form-control" id="gen" name="Genero">
                         <%
                           ArrayList<String> genero = new ArrayList();
+                          genero.add(request.getParameter("Genero"));
                           genero.add("Hombre");
                           genero.add("Mujer");
                           genero.add("No Binario");

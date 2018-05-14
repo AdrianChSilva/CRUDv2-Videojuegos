@@ -38,9 +38,10 @@
                 </div>
                 <div class="form-group">
                     <label>Plataforma</label>
-                    <select class="form-control" id="sel1" name="Plataforma">
+                    <select class="form-control" id="sel1" name="Plataforma" value="<%= request.getParameter("Plataforma")%>">
                         <%
                           ArrayList<String> plataforma = new ArrayList();
+                          plataforma.add(request.getParameter("Plataforma"));
                           plataforma.add("PS4");
                           plataforma.add("Xbox One");
                           plataforma.add("Nintendo Switch");
