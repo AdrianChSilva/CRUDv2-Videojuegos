@@ -3,22 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/borraVideojuego.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/borraFactura.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/altaSocio.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/altaVideojuego.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/editaSocioModificado.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/editaVideojuego.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/sacaFactura.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/borraSocio.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/editaSocio.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/socios.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/editaVideojuegoModificado.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/videojuegos.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/loginAction.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/index.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/login.jsp</file>
-            <file>file:/C:/Users/adrian.chamorrosilva/Documents/CRUD/CRUDv2/web/facturas.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/GitHub/CRUDv2-Videojuegos/CRUDv2/web/login.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/GitHub/CRUDv2-Videojuegos/CRUDv2/web/loginAction.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/GitHub/CRUDv2-Videojuegos/CRUDv2/web/videojuegos.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/GitHub/CRUDv2-Videojuegos/CRUDv2/web/facturas.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/GitHub/CRUDv2-Videojuegos/CRUDv2/web/editaVideojuegoModificado.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/GitHub/CRUDv2-Videojuegos/CRUDv2/web/sacaFactura.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/GitHub/CRUDv2-Videojuegos/CRUDv2/web/socios.jsp</file>
         </group>
     </open-files>
 </project-private>

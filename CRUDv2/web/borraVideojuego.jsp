@@ -16,7 +16,7 @@
   <body>
     <%
       Class.forName("com.mysql.jdbc.Driver");
-      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos","root", "");
+      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos","root", "root");
       Statement s = conexion.createStatement();
       s.execute ("DELETE FROM videojuegos WHERE CodVideojuegos=" + request.getParameter("CodVideojuegos"));
       

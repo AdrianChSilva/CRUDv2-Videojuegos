@@ -28,38 +28,35 @@
     </head>
     <body>
         <%
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", ""); //el espacio de la contraseña puede estar vacío. En cualquier caso la contraseña es root
-            Statement s = conexion.createStatement();
-            ResultSet listado = s.executeQuery("SELECT * FROM socios");
-
-            request.setCharacterEncoding("UTF-8");
-
-            // Comprueba la existencia del número de socio introducido
-            String consultaCodSocio = "SELECT * FROM socios WHERE CodSocios="
-                    + Integer.valueOf(request.getParameter("CodSocios"));
-
-            ResultSet numeroDeSocios = s.executeQuery(consultaCodSocio);
-            numeroDeSocios.last();
-
-            if (numeroDeSocios.getRow() != 0) {
-                out.println("Lo siento, no se ha podido dar de alta, ya existe un socio con el código "
-                        + request.getParameter("CodSocios") + ".");
-            } else {
-                String insercion = "INSERT INTO socios VALUES (" + Integer.valueOf(request.getParameter("CodSocios"))
-                        + ", '" + request.getParameter("DNI") + "', '"
-                        + request.getParameter("Nombre")
-                        + "', '" + request.getParameter("Apellidos")
-                        + "', '" + request.getParameter("Teléfono")
-                        + "', '" + request.getParameter("Email")
-                        + "', '" + request.getParameter("Genero")
-                        + "', '" + request.getParameter("Direccion")
-                        + "', '" + request.getParameter("Asociado") + "')";
-                s.execute(insercion);
-                out.println("Socio dado de alta correctamente.");
-            }
-            conexion.close();
+          Class.forName("com.mysql.jdbc.Driver");
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "root"); //el espacio de la contraseña puede estar vacío. En cualquier caso la contraseña es root
+          Statement s = conexion.createStatement();
+          ResultSet listado = s.executeQuery("SELECT * FROM socios");
+          request.setCharacterEncoding("UTF-8");
+          // Comprueba la existencia del número de socio introducido
+          String consultaDNI = "SELECT * FROM socios WHERE DNI='"
+            + request.getParameter("DNI") + "'";
+          ResultSet DNIRep = s.executeQuery(consultaDNI);
+          DNIRep.last();
+          if (DNIRep.getRow() != 0) {
+            out.println("Lo siento, no se ha podido dar de alta, ya existe un socio con el DNI "
+              + request.getParameter("DNI") + ".");
+          } else {
+            String insercion = "INSERT INTO socios(DNI,nombre,apellidos,telefono,email,genero,direccion,asociado) VALUES ('"
+              + request.getParameter("DNI") + "', '"
+              + request.getParameter("Nombre")
+              + "', '" + request.getParameter("Apellidos")
+              + "', '" + request.getParameter("Teléfono")
+              + "', '" + request.getParameter("Email")
+              + "', '" + request.getParameter("Genero")
+              + "', '" + request.getParameter("Direccion")
+              + "', '" + request.getParameter("Asociado") + "')";
+            s.execute(insercion);
+            out.println("Socio dado de alta correctamente.");
+          }
+          conexion.close();
         %>
+
         <br>
         <a href="index.jsp" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span> Página principal</button>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

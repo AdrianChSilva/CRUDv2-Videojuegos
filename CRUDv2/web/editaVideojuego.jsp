@@ -2,6 +2,7 @@
     Document   : editaVideojuego
     Author     : adrian.chamorrosilva
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -33,22 +34,37 @@
             <form method="get" action="editaVideojuegoModificado.jsp">
 
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Título&nbsp;</label><input type="text" size="7" name="Titulo" value="<%= request.getParameter("Titulo")%>">
+                    <label>&nbsp;&nbsp;Título&nbsp;</label><input type="text"class="form-control"  size="7" name="Titulo" value="<%= request.getParameter("Titulo")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Plataforma&nbsp;</label><input type="text" size="5" name="Plataforma" value="<%= request.getParameter("Plataforma")%>">
+                    <label>Plataforma</label>
+                    <select class="form-control" id="sel1" name="Plataforma">
+                        <%
+                          ArrayList<String> plataforma = new ArrayList();
+                          plataforma.add("PS4");
+                          plataforma.add("Xbox One");
+                          plataforma.add("Nintendo Switch");
+                          plataforma.add("PC");
+                          for (String x : plataforma) {
+                            out.println("<option>" + x + "</option>");
+                          }
+                        %>
+                    </select>
+
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Desarrolladora&nbsp;</label><input type="text" size="5" name="Desarrolladora" value="<%= request.getParameter("Desarrolladora")%>">
+                    <label>Desarrolladora</label>
+                    <input type="text" class="form-control" name="Desarrolladora" value="<%= request.getParameter("Desarrolladora")%>">
+                </div>
+
+                <div class="form-group">
+                    <label>&nbsp;&nbsp;Publisher&nbsp;</label><input type="text" class="form-control"  name="Publisher" size="7" value="<%= request.getParameter("Publisher")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Publisher&nbsp;</label><input type="text" name="Publisher" size="7" value="<%= request.getParameter("Publisher")%>">
+                    <label>&nbsp;&nbsp;Precio&nbsp;</label><input type="number" class="form-control"  name="Precio" size="20" value="<%= request.getParameter("Precio")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Precio&nbsp;</label><input type="text" name="Precio" size="20" value="<%= request.getParameter("Precio")%>">
-                </div>
-                <div class="form-group">
-                    <label>&nbsp;&nbsp;Stock&nbsp;</label><input type="text" name="Stock" size="1" value="<%= request.getParameter("Stock")%>">
+                    <label>&nbsp;&nbsp;Stock&nbsp;</label><input type="number" class="form-control"  name="Stock" size="1" value="<%= request.getParameter("Stock")%>">
                 </div>
                 <hr>
                 &nbsp;&nbsp;<a href="videojuegos.jsp" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancelar</a>

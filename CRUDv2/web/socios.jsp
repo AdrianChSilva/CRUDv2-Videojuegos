@@ -2,6 +2,7 @@
     Document   : socios
     Author     : adrian.chamorrosilva
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -57,7 +58,7 @@
 
         <%
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "root");
             Statement s = null;
             ResultSet listado = null;
             s = conexion.createStatement();
@@ -80,13 +81,28 @@
                 <table class="table">
                     <tr><th>CodSocio</th><th>DNI</th><th>Nombre</th><th>Apellidos</th><th>Teléfono</th><th>Email</th><th>Genero</th><th>Dirección</th><th>Asociado</th></tr>
                     <form method="get" action="altaSocio.jsp"> 
-                        <tr><td><input type="text" name="CodSocios" size="5"></td>
-                            <td><input type="text" name="DNI" size="7"></td>
+                        <tr><td></td>
+                            <!--<td><input type="text" name="CodSocios" size="5" required=""></td>-->
+                            <td><input type="text" name="DNI" size="7" required=""  pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))"></td><!-- Mejoras-->
                             <td><input type="text" name="Nombre" size="5"></td>
                             <td><input type="text" name="Apellidos" size="5"></td>
-                            <td><input type="text" name="Teléfono" size="7"></td>
-                            <td><input type="text" name="Email" size="20"></td>
-                            <td><input type="text" name="Genero" size="1"></td>
+                            <td><input type="text" name="Teléfono" size="7" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"></td> <!-- Mejoras-->
+                            <td><input type="email" name="Email" size="18"></td>
+                            <td> <div class="form-group">
+                                    <select class="form-control" id="gen" name="Genero" size="">
+                                        <%
+                                            ArrayList<String> genero = new ArrayList();
+                                            genero.add("Hombre");
+                                            genero.add("Mujer");
+                                            genero.add("No Binario");
+                                            for (String x : genero) {
+                                                out.println("<option>" + x + "</option>");
+                                            }
+                                        %>
+                                    </select>
+
+                                </div></td>
+                           <!-- <td><input type="text" name="Genero" size="1"></td>-->
                             <td><input type="text" name="Direccion" size="20"></td>
                             <td><input type="text" name="Asociado" size="20"></td>
 

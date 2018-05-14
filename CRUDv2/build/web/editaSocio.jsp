@@ -2,6 +2,7 @@
     Document   : editaSocio
     Author     : adrian.chamorrosilva
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -34,25 +35,37 @@
 
 
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Nombre&nbsp;</label><input type="text" size="5" name="Nombre" value="<%= request.getParameter("Nombre")%>">
+                    <label>&nbsp;&nbsp;Nombre&nbsp;</label><input type="text"class="form-control"  size="5" name="Nombre" value="<%= request.getParameter("Nombre")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Apellidos&nbsp;</label><input type="text" size="5" name="Apellidos" value="<%= request.getParameter("Apellidos")%>">
+                    <label>&nbsp;&nbsp;Apellidos&nbsp;</label><input type="text"class="form-control"  size="5" name="Apellidos" value="<%= request.getParameter("Apellidos")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Teléfono&nbsp;</label><input type="text" name="Telefono" size="7" value="<%= request.getParameter("Telefono")%>">
+                    <label>&nbsp;&nbsp;Teléfono&nbsp;</label><input type="text"class="form-control" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"  name="Telefono" size="7" value="<%= request.getParameter("Telefono")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Email&nbsp;</label><input type="text" name="Email" size="20" value="<%= request.getParameter("Email")%>">
+                    <label>&nbsp;&nbsp;Email&nbsp;</label><input type="email" class="form-control"  name="Email" size="20" value="<%= request.getParameter("Email")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Género&nbsp;</label><input type="text" name="Genero" size="1" value="<%= request.getParameter("Genero")%>">
+                    <label>Género</label>
+                    <select class="form-control" id="gen" name="Genero">
+                        <%
+                          ArrayList<String> genero = new ArrayList();
+                          genero.add("Hombre");
+                          genero.add("Mujer");
+                          genero.add("No Binario");
+                          for (String x : genero) {
+                            out.println("<option>" + x + "</option>");
+                          }
+                        %>
+                    </select>
+
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Dirección&nbsp;</label><input type="text" name="Direccion" size="20" value="<%= request.getParameter("Direccion")%>">
+                    <label>&nbsp;&nbsp;Dirección&nbsp;</label><input type="text" class="form-control" name="Direccion" size="20" value="<%= request.getParameter("Direccion")%>">
                 </div>
                 <div class="form-group">
-                    <label>&nbsp;&nbsp;Asociado&nbsp;</label><input type="text" name="Asociado" size="20" value="<%= request.getParameter("Asociado")%>">
+                    <label>&nbsp;&nbsp;Asociado&nbsp;</label><input type="text" class="form-control" name="Asociado" size="20" value="<%= request.getParameter("Asociado")%>">
                 </div>
                 <hr>
                 &nbsp;&nbsp;<a href="socios.jsp" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancelar</a>

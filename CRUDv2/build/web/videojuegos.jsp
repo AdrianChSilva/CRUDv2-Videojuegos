@@ -56,7 +56,7 @@
         <%
             //En ésta nueva versión hemos incluido un buscador, para que se agilice más la búsqueda
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "root");
             Statement s = null;
             s = conexion.createStatement();
             ResultSet listado = null;
@@ -80,8 +80,8 @@
                 <table class="table">
                     <tr><th>CodVideojuegos</th><th>Título</th><th>Plataforma</th><th>Desarrolladora</th><th>Publisher</th><th>Precio</th><th>Stock</th></tr>
                     <form method="get" action="altaVideojuego.jsp"> 
-                        <tr><td><input type="text" name="CodVideojuegos" size="5"></td>
-                            <td><input type="text" name="Titulo" size="7"></td>
+                        <tr><td><input type="text" name="CodVideojuegos" size="5" required="Obligatorio"></td>
+                            <td><input type="text" name="Titulo" size="7" required="Obligatorio"></td>
                             <!--CAMBIOS DE LA VERSIÓN CRUD 2.0 ARRAYLIST-->
                             <td> <div class="form-group">
                                     <select class="form-control" id="sel1" name="Plataforma">
@@ -99,10 +99,10 @@
 
                                 </div></td>
                             <!---------------------------------------------------------->
-                            <td><input type="text" name="Desarrolladora" size="5"></td>
-                            <td><input type="text" name="Publisher" size="7"></td>
-                            <td><input type="text" name="Precio" size="3"></td>
-                            <td><input type="text" name="Stock" size="3"></td>
+                            <td><input type="text" name="Desarrolladora" size="5" required=""></td>
+                            <td><input type="text" name="Publisher" size="7"required=""></td>
+                            <td><input type="number" name="Precio" size="3"required=""></td>
+                            <td><input type="number" name="Stock" size="3"required=""></td>
                             <td><button type="submit" value="Añadir" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Añadir</button></td><td></td></tr>           
                     </form>
                     <%

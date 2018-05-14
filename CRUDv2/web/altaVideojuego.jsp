@@ -30,7 +30,7 @@
     <body>
         <%
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "root");
             Statement s = conexion.createStatement();
             ResultSet listado = s.executeQuery("SELECT * FROM videojuegos");
 

@@ -36,7 +36,7 @@
                             <!-- form card login -->
                             <div class="card rounded-0">
                                 <div class="card-header">
-                                    <h3 class="mb-0">Login</h3>
+                                    <h3 class="mb-0">Login. Gestión Tienda Videojuegos</h3>
                                 </div>
                                 <div class="card-body">
                                     <form class="form" role="form" id="formLogin" method="get" action="loginAction.jsp">

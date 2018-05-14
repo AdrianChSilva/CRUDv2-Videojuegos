@@ -55,29 +55,30 @@
         </nav>  
         <%
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "root");
             Statement s = null;
             ResultSet listado = null;
             s = conexion.createStatement();
             String query = request.getParameter("b");
             String busqueda;
             if (query != null) {
-                busqueda = "SELECT * FROM det_factura WHERE Factura_idFactura like '%" + query + "%'"
-                        + " or CodVideojuegos like '%" + query + "%'";
+                busqueda = "SELECT * FROM det_factura inner join videojuegos on det_factura.CodVideojuegos = videojuegos.CodVideojuegos WHERE Factura_idFactura like '%" + query + "%'"
+                        + " or CodVideojuegos like '%" + query + "%' ";
             } else {
-                busqueda = "select * from det_factura order by CodDetFact asc";
+                busqueda = "select * from det_factura inner join videojuegos on det_factura.CodVideojuegos = videojuegos.CodVideojuegos order by CodDetFact asc";
             }
             listado = s.executeQuery(busqueda);
         %>
         <div class="container-fluid">
             <div class="table-responsive">
                 <table class="table">
-                    <tr><th>CodDetFact</th><th>CodVideojuegos</th><th>Cantidad</th><th>Precio</th><th>Factura_idFactura</th></tr>
+                    <tr><th>CodDetFact</th><th>CodVideojuegos</th><th>Titulo</th><th>Cantidad</th><th>Precio</th><th>Factura_idFactura</th></tr>
                     <form method="get" action="sacaFactura.jsp"> 
-                        <tr><td><input type="text" name="CodDetFact" size="5"></td>
-                            <td><input type="text" name="CodVideojuegos" size="7"></td>
-                            <td><input type="text" name="Cantidad" size="5"></td>
-                            <td><input type="text" name="Precio" size="5"></td>
+                        <tr><td><input type="number" name="CodDetFact" size="5" required=""></td>
+                            <td><input type="number" name="CodVideojuegos" size="7" required=""></td>
+                            <td></td>
+                            <td><input type="number" name="Cantidad" size="5" required=""></td>
+                            <td><input type="number" name="Precio" size="5" required=""></td>
                             <!--CAMBIOS DE LA VERSIÓN CRUD 2.0 ARRAYLIST-->
                             <td> <div class="form-group">
                                     <select class="form-control" id="sel1" name="Factura_idFactura">
@@ -120,10 +121,11 @@
                             <!---------------------------------------------------------->
                             <td><button type="submit" value="Añadir" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Añadir</button></td><td></td></tr>           
                     </form>
-                    <%                        while (listado.next()) {
+                    <%      while (listado.next()) {
                             out.println("<tr><td>");
                             out.println(listado.getString("CodDetFact") + "</td>");
                             out.println("<td>" + listado.getString("CodVideojuegos") + "</td>");
+                            out.println("<td>" + listado.getString("titulo") + "</td>");
                             out.println("<td>" + listado.getString("Cantidad") + "</td>");
                             out.println("<td>" + listado.getString("Precio") + "</td>");
                             out.println("<td>" + listado.getString("Factura_idFactura") + "</td>");

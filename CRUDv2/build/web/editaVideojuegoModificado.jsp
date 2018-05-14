@@ -29,7 +29,7 @@
     <body>
         <%
           Class.forName("com.mysql.jdbc.Driver");
-          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "");//usuario y contraseña que tengas en tu servidor
+          Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/tiendavideojuegos", "root", "root");//usuario y contraseña que tengas en tu servidor
           Statement s = conexion.createStatement();
 
           request.setCharacterEncoding("UTF-8");
